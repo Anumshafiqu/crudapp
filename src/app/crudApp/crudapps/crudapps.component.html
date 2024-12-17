@@ -1,0 +1,51 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">{{ isEditing ? 'Edit' : 'Add' }} User</h2>
+  
+    <!-- User Form -->
+    <form (ngSubmit)="isEditing ? updateUser() : addUser()">
+        <div class="d-flex w-13rem">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" [(ngModel)]="user.name" name="name" class="form-control" required />
+      </div>
+  
+      <div class="form-group mx-2">
+        <label for="email">Email</label>
+        <input type="email" id="email" [(ngModel)]="user.email" name="email" class="form-control" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" [(ngModel)]="user.phone" name="phone" class="form-control" required />
+      </div>
+  
+      <button type="submit" class="btn text-white button-plus mx-2">{{ isEditing ? 'Update' : 'Add' }}</button>
+      <!-- <button type="button" class="btn bg-success text-white ml-2 button-plus" (click)="resetForm()">Reset</button> -->
+    </div>
+    </form>
+  
+    <!-- User Table -->
+    <h2 class="text-center mt-5">Crud app</h2>
+    <table class="table table-bordered mt-3 shadow-sm p-2">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>
+            <button class="btn btn-info text-white" (click)="editUser(user)">Edit</button>
+            <button class="btn btn-danger text-white mx-2" (click)="deleteUser(user.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
