@@ -20,9 +20,9 @@ export class CrudappsComponent {
 
   constructor(private userService: UserService) {}
 
-  ngOnInit(): void {
-    this.users = this.userService.getUsers();
-  }
+  // ngOnInit(): void {
+  //   this.users = this.userService.getUsers();
+  // }
 
   addUser(): void {
     this.userService.addUser({ ...this.user });
@@ -46,6 +46,28 @@ export class CrudappsComponent {
   resetForm(): void {
     this.user = { id: 0, name: '', email: '', phone: '' };
     this.isEditing = false;
+  }
+  isDarkMode = false; 
+
+  ngOnInit() {
+    this.users = this.userService.getUsers();
+    // Check Local Storage for Theme
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark') {
+      this.isDarkMode = true;
+      document.body.classList.add('dark-mode');
+    }
+  }
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    if (this.isDarkMode) {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
+    }
   }
 
 }

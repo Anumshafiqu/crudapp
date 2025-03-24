@@ -25,10 +25,10 @@
     background-color: rgb(192, 147, 33);
     width: 100px;
 }
-li{
+/* li{
     list-style: none !important;
     width: 300px;
-}
+} */
 .main{
 width: 100%;
 }
@@ -56,3 +56,9 @@ input{
   width: 300px;
 }
 
+
+@media (max-width: 768px) {
+.btn{
+  display: block !important;
+}
+}

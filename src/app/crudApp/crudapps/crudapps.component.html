@@ -1,7 +1,32 @@
 
-  
-  
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">about us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">contact us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">blog</a>
+        </li>
+        <p-button class="p-button-text mt-2 mx-4" (click)="toggleTheme()">
+          <i [ngClass]="isDarkMode ? 'pi pi-sun' : 'pi pi-moon'" class="text-info"></i>
+        </p-button>
+      </ul>
 
+    </div>
+  </div>
+</nav>
 
   <div class="container mt-5">
     <!-- Header -->
@@ -33,6 +58,17 @@
             required
           />
         </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input
+            type="text"
+            id="phone"
+            [(ngModel)]="user.phone"
+            name="phone"
+            class="form-control"
+            required
+          />
+        </div>
         <div>
           <button type="submit" class="btn btn-primary">
             {{ isEditing ? 'Update' : 'Add' }}
@@ -49,6 +85,7 @@
           <tr>
             <th>Name</th>
             <th>Email</th>
+            <th>Phone</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -56,6 +93,7 @@
           <tr *ngFor="let user of users">
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
+            <td>{{ user.phone}}</td>
             <td>
               <button class="btn btn-info text-white btn-sm mt-1 mx-2" (click)="editUser(user)">
                 Edit
@@ -79,6 +117,9 @@
 
 
 
+
+
+  
 
 
   

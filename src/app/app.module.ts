@@ -7,6 +7,8 @@ import { CrudappsComponent } from './crudApp/crudapps/crudapps.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Card } from 'primeng/card';
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,9 @@ import { Card } from 'primeng/card';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    Card
+    Card,
+    ButtonModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
